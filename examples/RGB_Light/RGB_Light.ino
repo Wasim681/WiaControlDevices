@@ -12,8 +12,7 @@ const int blue_pin 13;
 WiaLightRGB light(red_pin, green_pin, blue_pin);
 
 void setup() {
-  light.init();  // default argumnet is true, if u want light to turn on by default
-  //light.init(false);   
+  light.init(); 
 
   //light.setTransition(true); // if u want light to turn on and off by dimming by default it is set false
   //light.set(true); // set state of light

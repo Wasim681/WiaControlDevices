@@ -11,10 +11,9 @@
   class WiaLight : public WiaLightBase{
     public:
       WiaLight(int pin = -1):_gpo(pin){ }
-      bool init(bool defaultState = true) override { if(_gpo == -1) return false;
+      bool init() override { if(_gpo == -1) return false;
         pinMode(_gpo, OUTPUT);
         isInit = true;
-        lightState = defaultState;
         
         (lightState ? turnOn() : turnOff());
         

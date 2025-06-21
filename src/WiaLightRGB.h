@@ -26,12 +26,11 @@
       int getG(){ return cg; }
       int getB(){ return cb; }
       
-      bool init(bool defaultState = true) override { if(_gpr == -1 || _gpg == -1 || _gpb == -1) return false;
+      bool init() override { if(_gpr == -1 || _gpg == -1 || _gpb == -1) return false;
         pinMode(_gpr, OUTPUT);
         pinMode(_gpg, OUTPUT);
         pinMode(_gpb, OUTPUT);
         isInit = true;
-        lightState = defaultState;
         (lightState ? turnOn() : turnOff());        
         return true;
         }
@@ -63,7 +62,11 @@
         setBrightness(bri);
         return setColor(r, g, b);
         }
-
+      void setDefaultColor(int r, int g, int b){
+        cr = constrain(r, WIA_LIGHT_OFF, WIA_LIGHT_ON);
+        cg = constrain(g, WIA_LIGHT_OFF, WIA_LIGHT_ON);
+        cb = constrain(b, WIA_LIGHT_OFF, WIA_LIGHT_ON);
+      }
     protected:
       void takeAction(int toR, int toG, int toB, int delayTime = 30, int steps = 30) {
         if(!isTrans){

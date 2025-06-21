@@ -9,12 +9,12 @@
 WiaLight light(14);
 
 void setup() {
-  light.init();  // default argumnet is true, if u want light to turn on by default
-  //light.init(false);   
+  light.init(); 
 
   //light.setTransition(true); // if u want light to turn on and off by dimming by default it is set false
   //light.set(true); // set state of light
   //light.set(true, 100); // set state of light with brightness[0 - 100]
+  
 }
 
 void loop() {

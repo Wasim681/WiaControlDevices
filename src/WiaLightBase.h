@@ -45,9 +45,9 @@
       bool isTransition(){ return isTrans; }
       void setTransition(bool on){ isTrans = on; }
       bool toggle() { return (lightState? turnOff() : turnOn()); }
-
+      void setDefaultState(bool state){ lightState = state; }
       
-      virtual bool init(bool defaultState = true) = 0;
+      virtual bool init() = 0;
       virtual bool turnOn() = 0;
       virtual bool turnOff() = 0;
       virtual bool set(bool state) = 0;
