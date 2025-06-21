@@ -1,0 +1,44 @@
+#######################################
+# Datatypes (KEYWORD1)
+#######################################
+
+
+#######################################
+# Classes (KEYWORD1)
+#######################################
+
+WiaLight KEYWORD1
+WiaLightRGB KEYWORD1
+
+#######################################
+# Methods and Functions (KEYWORD2)
+#######################################
+
+init          KEYWORD2
+isInitialized KEYWORD2
+
+isOn      KEYWORD2
+set       KEYWORD2
+setColor  KEYWORD2
+
+turnOn    KEYWORD2
+turnOff   KEYWORD2
+toggle    KEYWORD2
+
+setBrightness KEYWORD2
+getBrightness KEYWORD2
+
+isTransition KEYWORD2
+setTransition KEYWORD2
+
+getR  KEYWORD2
+getG  KEYWORD2
+getB  KEYWORD2
+
+#######################################
+# Instances (KEYWORD2)
+#######################################
+
+#######################################
+# Constants (LITERAL1)
+#######################################
