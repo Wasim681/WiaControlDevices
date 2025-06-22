@@ -10,7 +10,7 @@ WiaSwitch switch1(14);
 WiaSwitch switch2(13);
 
 void setup() {
-  switch1.setDefaultSate(true); // switch default state will be ON
+  switch1.setDefaultState(true); // switch default state will be ON
   switch1.init();  // must be initializing before calling any action 
   switch2.init();  // must be initializing before calling any action 
 
