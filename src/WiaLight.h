@@ -14,13 +14,9 @@
       bool init() override { if(_gpo == -1) return false;
         pinMode(_gpo, OUTPUT);
         isInit = true;
-        
-        (lightState ? turnOn() : turnOff());
-        
-        return true;
+        return set(lightState);
         }
-  
-      bool set(bool state) override { if(!isInit) return false;
+      bool set(bool state) 			override { if(!isInit) return false;
         takeAction(state? WIA_LIGHT_ON : WIA_LIGHT_OFF);
         lightState = state;
         return true;
@@ -28,16 +24,6 @@
       bool set(bool state, int bri) override { if(!isInit) return false;
         setBrightness(bri);
         return set(state);
-        }
-      bool turnOn() override {if(!isInit) return false;
-        takeAction(WIA_LIGHT_ON);
-        lightState = true;
-        return true;
-        }
-      bool turnOff() override {if(!isInit) return false;
-        takeAction(WIA_LIGHT_OFF);
-        lightState = false;
-        return true;
         }
     protected: 
       void takeAction(int to, int delayTime = 30, int steps = 30) {

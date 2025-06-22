@@ -31,27 +31,18 @@
         pinMode(_gpg, OUTPUT);
         pinMode(_gpb, OUTPUT);
         isInit = true;
-        (lightState ? turnOn() : turnOff());        
-        return true;
+		return set(lightState);
         }
-      bool turnOn() override { if(!isInit) return false;
-        takeAction(cr, cg, cb);
-        lightState = true;
-        return true;
-        }
-      bool turnOff() override { if(!isInit) return false;
-        takeAction(WIA_LIGHT_OFF, WIA_LIGHT_OFF, WIA_LIGHT_OFF);
-        lightState = false;
-        return true;
-        }
-      bool set(bool state) override { if(!isInit) return false; 
-        return (state? turnOn() : turnOff());
+      bool set(bool state) 			override { if(!isInit) return false; 
+		if(state) takeAction(cr, cg, cb); else takeAction(WIA_LIGHT_OFF, WIA_LIGHT_OFF, WIA_LIGHT_OFF);
+        lightState = state;
+		return true;
         }
       bool set(bool state, int bri) override { if(!isInit) return false;
         setBrightness(bri);
         return set(state);
         }
-      bool setColor(int r, int g, int b){ if(!isInit) return false;
+      bool setColor(int r, int g, int b)	 	 { if(!isInit) return false;
         takeAction(r, g, b);
         cr = constrain(r, WIA_LIGHT_OFF, WIA_LIGHT_ON);
         cg = constrain(g, WIA_LIGHT_OFF, WIA_LIGHT_ON);

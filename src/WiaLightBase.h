@@ -47,9 +47,10 @@
       bool toggle() { return (lightState? turnOff() : turnOn()); }
       void setDefaultState(bool state){ lightState = state; }
       
+      bool turnOn() { return set(true); }
+      bool turnOff(){ return set(false); }
+	  
       virtual bool init() = 0;
-      virtual bool turnOn() = 0;
-      virtual bool turnOff() = 0;
       virtual bool set(bool state) = 0;
       virtual bool set(bool state, int bri) = 0;
 
